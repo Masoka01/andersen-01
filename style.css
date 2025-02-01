@@ -1,0 +1,119 @@
+:root {
+  --primary-color: #d147a3; /* Warna pink tua */
+  --second-color: #ff6f91; /* Warna pink cerah */
+  --h1-font: "Macondo"; /* Font untuk judul */
+  --background-image: url("https://i.imgur.com/aJK1Qej.jpeg");
+  --sakura: url("https://i.imgur.com/mvR3wcA.png");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Arial", sans-serif;
+  position: relative;
+}
+
+.container {
+  text-align: center;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.7); /* Warna putih transparan */
+  padding: 30px;
+  border-radius: 10px; /* Sudut membulat */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan lembut */
+  z-index: 1; /* Memastikan kontainer di atas background */
+  margin-top: 20rem;
+}
+
+h1 {
+  color: black;
+  font-size: 2.2rem;
+  margin-top: -0.5rem;
+  font-family: var(--h1-font);
+}
+
+#welcome-message {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: var(--second-color); /* Warna latar belakang tombol */
+  border: 2px solid var(--second-color); /* Border dengan warna pink cerah */
+  border-radius: 25px; /* Radius lebih besar untuk tombol lebih bulat */
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: transparent; /* Latar belakang transparan saat hover */
+  color: var(
+    --second-color
+  ); /* Ubah warna teks menjadi pink cerah saat hover */
+}
+
+/* Animasi */
+
+.heart {
+  position: absolute;
+  bottom: -50px;
+  background-color: red;
+  transform: rotate(-45deg);
+  animation: float 5s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+  box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.8);
+  width: 20px; /* Ukuran lebih kecil */
+  height: 20px; /* Ukuran lebih kecil */
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  background-color: inherit;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.heart::after {
+  left: 50%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(-45deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 0, 0, 1));
+    box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.9);
+  }
+  100% {
+    transform: translate(var(--random-x, 0px), -100vh) rotate(-45deg);
+    opacity: 0;
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+  }
+}

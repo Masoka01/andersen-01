@@ -1,0 +1,632 @@
+:root {
+  --primary-color: #d147a3;
+  --second-color: #ff6f91;
+  --background-image: url("https://i.imgur.com/aJK1Qej.jpeg");
+  --primary-font: "Macondo";
+  --second-font: "Montserrat";
+  --third-font: "Borel";
+  --logo: url("https://i.imgur.com/zzcWwOi.png");
+}
+
+html {
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background: var(--background-image) center/cover no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#hero {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  margin: auto;
+  font-family: var(--primary-font);
+  font-size: 4rem;
+  word-spacing: 1rem;
+  color: white;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6), 0 0 25px var(--second-color);
+  gap: 1rem;
+}
+
+/* Mempelai */
+.info-section {
+  height: 100vh;
+  padding: 2rem 1rem;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.info-section .greeting {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.greeting p {
+  font-size: 1rem;
+}
+
+.info-content {
+  padding: 1rem;
+  margin: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 2px dashed var(--primary-color);
+}
+
+.profile-photo {
+  width: 125px !important;
+  height: 125px !important;
+  border-radius: 1rem;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 2px dashed var(--second-color);
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .profile-photo {
+    width: 80px;
+    height: 80px;
+  }
+}
+/* Mempelai */
+
+/* Loading */
+/* Loading screen container */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+/* Spinner style */
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3); /* Light border */
+  border-top: 4px solid #ff6f91; /* Pink top border */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+/* Keyframes for spinning effect */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Initially hide the content */
+.hide-content {
+  display: none;
+}
+
+/* Show content when it's ready */
+.show-content {
+  display: block;
+}
+/* Loading */
+
+/* Acara */
+.event-info {
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.event-info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-family: var(--third-font);
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* Mengubah layout menjadi vertikal */
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.event-detail {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px; /* Menyesuaikan lebar kontainer */
+  border: 2px dashed var(--primary-color);
+}
+
+.event-detail h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-family: var(--second-font);
+}
+
+.event-detail p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.event-detail i {
+  font-size: 2rem;
+}
+
+/* Maps Section */
+.map-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.map-container h3 {
+  margin-bottom: 0.5rem;
+  font-family: var(--second-font);
+}
+
+.map-container iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  border-radius: 10px;
+}
+
+/* Tombol Klik Lokasi */
+.location-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.location-button:hover {
+  background-color: transparent;
+  border: 2px dashed var(--primary-color);
+}
+
+@media screen and (max-width: 600px) {
+  .map-container iframe {
+    height: 200px;
+  }
+}
+/* Acara */
+
+/* Story */
+.love-story {
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: var(--second-font);
+}
+
+.love-story h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: var(--third-font);
+  color: white;
+}
+
+.story-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.story {
+  max-width: 600px;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 2px dashed var(--primary-color);
+}
+
+.story h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--second-font);
+  color: white;
+}
+
+.story p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: white;
+}
+
+.story i {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .story-container {
+    gap: 1rem;
+  }
+}
+/* Story */
+
+/* Galeri */
+.gallery-section {
+  padding: 2rem 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.gallery-section h2 {
+  font-size: 2rem;
+  color: white;
+  font-family: var(--third-font);
+}
+
+/* Grid layout untuk galeri (2 kolom) */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+  gap: 1rem;
+  justify-items: center;
+}
+
+/* Setiap item galeri */
+.gallery-item {
+  border: 2px dashed var(--primary-color); /* Warna primer border (contoh biru) */
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.gallery-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Menempatkan item terakhir di tengah */
+.gallery-grid .center-item {
+  grid-column: span 2; /* Membuat item ini span 2 kolom */
+  display: flex;
+  justify-content: center; /* Membuat item di tengah */
+  align-items: center;
+}
+
+.gallery-grid .center-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Menjaga aspek rasio gambar */
+}
+
+/* Tampilan saat hover */
+.gallery-item:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Popup */
+.modal {
+  display: none; /* Modal disembunyikan secara default */
+  position: fixed;
+  z-index: 1; /* Pastikan modal muncul di atas konten lainnya */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Background semi-transparan */
+  overflow: auto;
+  padding-top: 60px;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Menambahkan efek saat hover pada gambar */
+.gallery-item:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+/* Galeri */
+
+/* Doa */
+.doa-section {
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: var(--second-font);
+}
+
+.doa-section h2 {
+  font-size: 2rem;
+  margin-bottom: -2rem;
+  font-weight: bold;
+  font-family: var(--third-font);
+}
+
+.doa-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 2px dashed var(--primary-color);
+}
+
+.doa-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+/* Doa */
+
+/* Hadiah */
+.rekening-section {
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: var(--second-font);
+}
+
+.rekening-section h2 {
+  font-size: 2rem;
+  margin-bottom: -2rem;
+  font-weight: bold;
+  font-family: var(--third-font);
+}
+
+.rekening-section p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Kontainer untuk isi rekening */
+.rekening-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Kotak rekening */
+.rekening-item {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px dashed var(--primary-color);
+  border-radius: 15px;
+  padding: 1rem;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.rekening-item img {
+  width: 100px;
+  height: auto;
+}
+
+.rekening-item p {
+  margin: 0.5rem 0;
+}
+
+/* Styling tombol salin */
+.copy-btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Efek hover pada tombol */
+.copy-btn:hover {
+  background-color: transparent;
+  color: white;
+  border: 2px dashed var(--primary-color);
+  transform: scale(1.05);
+}
+
+/* Tombol berhasil tersalin */
+.copy-btn.tersalin {
+  background-color: var(--primary-color);
+  color: white;
+  cursor: default; /* Nonaktifkan klik */
+}
+
+.copy-btn.tersalin:hover {
+  background-color: transparent;
+  transform: none; /* Tidak ada efek zoom */
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .rekening-item {
+    width: 100%;
+  }
+}
+/* Hadiah */
+
+/* Komentar */
+.comment-section {
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: var(--third-font);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.comment-section h2 {
+  margin-bottom: -2rem;
+}
+
+.comment-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 1000px;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  border: 2px dashed var(--primary-color);
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+/* Komentar */
+
+/* Closing */
+.closing-section {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.closing-section .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.closing-section .section-title {
+  font-size: 2rem;
+  margin-bottom: -2rem;
+  font-family: var(--third-font);
+}
+
+.closing-section .closing-text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: white;
+}
+/* Closing */
+
+/* Music */
+.audio-icon-wrapper {
+  width: 4rem;
+  height: 4rem;
+  font-size: 2.5rem;
+  position: fixed;
+  bottom: 3rem;
+  right: 1rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  mix-blend-mode: difference;
+  animation: rotating 4s linear infinite;
+  transform-origin: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Music */
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  width: 100%;
+}
+
+.footer-logo {
+  width: 15%;
+  height: auto;
+  margin-bottom: -0.5rem;
+}
+/* Footer */
