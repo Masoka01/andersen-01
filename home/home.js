@@ -18,7 +18,7 @@ window.onload = function () {
   setTimeout(function () {
     document.getElementById("loading-screen").style.display = "none";
     document.getElementById("content").classList.add("show-content");
-  }, 3000);
+  }, 100);
 };
 
 // Popup Galeri
@@ -79,21 +79,6 @@ document.querySelectorAll(".copy-btn").forEach((button) => {
     copyRekening(rekeningNumber, button);
   });
 });
-
-// Komentar
-var disqus_config = function () {
-  this.page.url = "https://rendi-rara.disqus.com"; // URL halaman
-  this.page.identifier = "https://rendi-rara.disqus.com"; // ID halaman
-};
-
-(function () {
-  var d = document,
-    s = d.createElement("script");
-  s.src = "https://rendi-rara.disqus.com/embed.js";
-  s.setAttribute("data-theme", "light"); // Menambahkan tema gelap
-  s.setAttribute("data-timestamp", +new Date());
-  (d.head || d.body).appendChild(s);
-})();
 
 // AOS
 AOS.init();

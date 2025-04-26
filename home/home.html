@@ -341,7 +341,23 @@
         data-aos="zoom-in"
         data-aos-duration="2000"
       >
-        <div id="disqus_thread"></div>
+        <form id="commentForm">
+          <div class="input-group">
+            <input
+              type="text"
+              id="nameInput"
+              placeholder="Nama Anda"
+              required
+            />
+            <textarea
+              id="commentInput"
+              placeholder="Tulis doa dan ucapan..."
+              required
+            ></textarea>
+            <button type="submit" class="submit-btn">Kirim</button>
+          </div>
+        </form>
+        <div id="commentsList"></div>
       </div>
     </section>
     <!-- Komentar -->
@@ -387,7 +403,10 @@
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- Scripts -->
+    <!-- Js -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
     <script src="home.js"></script>
+    <script src="firebase-config.js"></script>
   </body>
 </html>
