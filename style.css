@@ -64,3 +64,23 @@ h1 {
     --second-color
   ); /* Ubah warna teks menjadi pink cerah saat hover */
 }
+
+/* Animasi Hujan yang lebih pelan */
+.raindrop {
+  position: absolute;
+  top: -50px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  animation: rain linear infinite;
+  z-index: 0;
+  filter: blur(0.5px); /* Efek blur halus */
+}
+
+@keyframes rain {
+  to {
+    transform: translateY(110vh) translateX(30px);
+    opacity: 0; /* Fade out saat mendekati bawah */
+  }
+}
