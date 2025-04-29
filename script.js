@@ -6,37 +6,46 @@ if (guestName) {
   document.getElementById("guest-name").textContent = guestName;
 }
 
-// Membuat efek hujan yang lebih pelan
+// Membuat efek hujan minimal
 function createRain() {
   const rainContainer = document.body;
-  const rainCount = 80; // Sedikit lebih sedikit
+  const rainCount = 30; // Jumlah sangat minim
 
-  for (let i = 0; i < rainCount; i++) {
+  // Cek jika perangkat mobile
+  const isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
+
+  // Jika mobile, kurangi lagi jumlahnya
+  const finalRainCount = isMobile ? 15 : rainCount;
+
+  for (let i = 0; i < finalRainCount; i++) {
     const raindrop = document.createElement("div");
     raindrop.classList.add("raindrop");
 
-    // Posisi acak
+    // Posisi acak sederhana
     const posX = Math.random() * window.innerWidth;
-    const delay = Math.random() * 10; // Delay lebih lama
-    const duration = 5 + Math.random() * 10; // Durasi lebih panjang
-    const size = 3 + Math.random() * 5; // Ukuran lebih kecil
+    const delay = Math.random() * 3;
+    const duration = 5 + Math.random() * 5; // Lambat
 
-    // Atur properti CSS
     raindrop.style.left = `${posX}px`;
     raindrop.style.animationDelay = `${delay}s`;
     raindrop.style.animationDuration = `${duration}s`;
-    raindrop.style.width = `${size}px`;
-    raindrop.style.height = `${size}px`;
-
-    // Kemiringan yang lebih halus
-    const tilt = Math.random() * 20 - 10; // -10deg sampai 10deg
-    raindrop.style.transform = `rotate(${tilt}deg)`;
-
-    // Opacity yang lebih rendah
-    raindrop.style.opacity = 0.3 + Math.random() * 0.4;
 
     rainContainer.appendChild(raindrop);
+
+    // Hapus elemen setelah selesai animasi untuk memori
+    setTimeout(() => {
+      rainContainer.removeChild(raindrop);
+    }, duration * 1000);
   }
+
+  // Jalankan ulang secara berkala dengan interval panjang
+  setInterval(createRain, 3000);
 }
 
-window.addEventListener("load", createRain);
+// Mulai hanya jika bukan perangkat low-end
+if (!navigator.connection || !navigator.connection.saveData) {
+  window.addEventListener("load", createRain);
+}
