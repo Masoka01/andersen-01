@@ -1,8 +1,8 @@
 // Cooldown
 simplyCountdown(".simply-countdown", {
   year: 2025, // required
-  month: 4, // required
-  day: 16, // required
+  month: 12, // required
+  day: 25, // required
   hours: 8, // Default is 0 [0-23] integer
   words: {
     //words displayed into the countdown
